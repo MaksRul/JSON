@@ -4,7 +4,7 @@ import java.io.FileReader;
 
 public class Main {
     ParseJSON parseJSON = new ParseJSON();
-    File fileJSON = new File("C:\\Users\\Максим\\Desktop\\JSONFile.txt");
+    File fileJSON = new File("C:\\Users\\Максим\\Desktop\\JSONFile\\application/json");
     FileReader fileReader;
 
     {
