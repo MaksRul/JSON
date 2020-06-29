@@ -1,20 +1,11 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import com.google.gson.Gson;
 
-public class Main {
-    ParseJSON parseJSON = new ParseJSON();
-    File fileJSON = new File("C:\\Users\\Максим\\Desktop\\JSONFile\\application/json");
-    FileReader fileReader;
+public class ParseJSON {
+    public static void main(String[] args) {
+        String pathJSON = "C:\\\\Users\\\\Максим\\\\Desktop\\\\JSONFile\\\\application/json ";
+        Gson g = new Gson();
+        Person person = g.fromJson(pathJSON,Person.class);
+        System.out.println(person);
 
-    {
-        try {
-            String json ;
-            fileReader = new FileReader(fileJSON);
-            json = parseJSON.parse(fileReader);
-            System.out.println(json);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
     }
 }
