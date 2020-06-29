@@ -1,27 +1,13 @@
-import java.io.FileReader;
+import com.google.gson.Gson;
 
 public class ParseJSON {
-    public ParseJSON() {
-        super();
-    }
-
-    public String parse(FileReader fileReader) throws FileNotFoundException {
-        Object o = new ParseJSON().parse(fileReader);
-        StringBuilder sb = new StringBuilder();
-        JSObject json = (JSObject) o;
-        String name = (String) json.getMember("name");
-        String  surname = (String) json.getMember("surname");
-        JSONListAdapter namberPhone = (JSONListAdapter) json.getSlot(Integer.parseInt("phones"));
-        for(Object namber: namberPhone){
-            sb.append(namber).append(";");
-        }
-        String sites = (String) json.getMember("sites");
-        sites.split(";");
-        String country = (String) json.getMember("country");
-        String city = (String) json.getMember("city");
-        String street = (String) json.getMember("street");
-        sb.append(name).append(surname).append(city).append(sites).append(country).append(street);
-        return sb.toString();
+    public static void main(String[] args) {
+        String pathJSON = "C:\\\\Users\\\\Максим\\\\Desktop\\\\JSONFile\\\\application/json ";
+        Gson g = new Gson();
+        Person person = g.fromJson(pathJSON,Person.class);
+        System.out.println(person);
 
     }
 }
+
+    
